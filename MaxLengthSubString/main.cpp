@@ -20,8 +20,6 @@ using namespace std;
  cadacacbedffffreaaawc
  f  c
 
- 所以包含a,d最小子串的长度为2；
-
  */
 int main(int argc, const char * argv[])
 {
@@ -47,14 +45,21 @@ int main(int argc, const char * argv[])
         }
     }
 
-    int minLength = (int)stringIn.size();
-    for (int i = 0; i < vectorA.size(); i++)
-        for (int j = 0; j < vectorB.size(); j++)
-        {
-            minLength = min(minLength, abs(vectorA[i]-vectorB[j]) + 1);
-        }
+    if (vectorA.empty() || vectorB.empty())
+    {
+        cout << "最短子串为：0"<< endl;
+    }
+    else
+    {
+        int minLength = (int)stringIn.size();
+        for (int i = 0; i < vectorA.size(); i++)
+            for (int j = 0; j < vectorB.size(); j++)
+            {
+                minLength = min(minLength, abs(vectorA[i]-vectorB[j]) + 1);
+            }
 
-    cout << "最短子串为："<< minLength << endl;
+        cout << "最短子串为："<< minLength << endl;
+    }
 
     return 0;
 }
